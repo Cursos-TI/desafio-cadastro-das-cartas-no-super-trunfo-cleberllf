@@ -11,7 +11,7 @@ int main() {
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     
     // Declaração das variáveis para as Cartas 1 e 2
-    char estado1[20], estado2[20];                  // Aramazena o nome do Estado.
+    char estado1, estado2;                          // Armazena o Estado (A-H).
     char codigo1[3], codigo2[3];                    // Código: armazena dois dígitos, exemplo: "01"
     char cidade1[50], cidade2[50];                  // Armazena o nome da cidade
     int populacao1, populacao2;                     // Armazena a população da cidade
@@ -24,10 +24,10 @@ int main() {
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
 
     // Cadastro dos dados da Carta 1
-    printf("Informe o Estado da Carta 1: ");
-    scanf(" %[^\n]", estado1); // Para capturar nomes com espaços, usamos " %[^\n]" para ler até a quebra de linha
-    
-    printf("Informe o Código da Carta 1 (ex: 01): ");
+    printf("Informe o Estado da Carta 1:\nObs.: Lembre-se que este país só possui 8 estados representados pelas letras A ao H: ");
+    scanf(" %c", &estado1); // O espaço antes de %c é para ignorar qualquer caractere de nova linha que possa ter sido deixado no buffer
+
+    printf("Informe o número da Carta 1 (ex: 01): ");
     scanf("%s", codigo1);
    
     printf("Informe o Nome da Cidade da Carta 1: ");
@@ -46,10 +46,10 @@ int main() {
     scanf("%d", &qtdPontosTuristicos1);
 
     // Cadastro dos dados da Carta 2
-    printf("Informe o Estado da Carta 2: ");
-    scanf(" %[^\n]", &estado2); // Para capturar nomes com espaços, usamos " %[^\n]" para ler até a quebra de linha
+    printf("Informe o Estado da Carta 2:\nObs.: Lembre-se que este país só possui 8 estados representados pelas letras A ao H: ");
+    scanf(" %c", &estado2); // O espaço antes de %c é para ignorar qualquer caractere de nova linha que possa ter sido deixado no buffer
     
-    printf("Informe o Código da Carta 2 (ex: 02): ");
+    printf("Informe o número da Carta 2 (ex: 02): ");
     scanf("%s", codigo2);
     
     printf("Informe o Nome da Cidade da Carta 2: ");
@@ -74,8 +74,8 @@ int main() {
     // Exibição dos dados das cartas de forma organizada
     // Carta 1
     printf("\nCarta 1:\n");
-    printf("Estado: %s\n", estado1);  
-    printf("Código: %c%s\n", estado1[0], codigo1);
+    printf("Estado: %c\n", estado1);
+    printf("Código: %c%s\n", estado1, codigo1);
     printf("Nome da Cidade: %s\n", cidade1);
     printf("População: %d\n", populacao1);
     printf("Área: %.2f km²\n", area1);
@@ -84,8 +84,8 @@ int main() {
     
     // Carta 2
     printf("\nCarta 2:\n");
-    printf("Estado: %s\n", estado2);
-    printf("Código: %c%s\n", estado2[0], codigo2);
+    printf("Estado: %c\n", estado2);
+    printf("Código: %c%s\n", estado2, codigo2);
     printf("Nome da Cidade: %s\n", cidade2);
     printf("População: %d\n", populacao2);
     printf("Área: %.2f km²\n", area2);
@@ -96,5 +96,5 @@ int main() {
 }
 // O código acima é um exemplo de como cadastrar e exibir informações de duas cartas de um jogo.
 // Ele utiliza variáveis para armazenar os dados de cada carta, como estado, código, nome da cidade, população, área, PIB e número de pontos turísticos.
-// O programa solicita ao usuário que insira essas informações e, em seguida, exibe os dados de ambas as cartas de forma organizada.
+// O programa solicita ao usuário que insira essas informações e depois exibe os dados de ambas as cartas de forma organizada.
 // O uso de " %[^\n]" para capturar nomes com espaços é uma boa prática, pois permite que o usuário insira nomes completos sem se preocupar com a quebra de linha.
