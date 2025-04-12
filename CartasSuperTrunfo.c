@@ -1,25 +1,24 @@
 #include <stdio.h>
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
 
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     
     // Declaração das variáveis para as Cartas 1 e 2
-    char estado1, estado2;                          // Armazena o Estado (A-H).
-    char codigo1[3], codigo2[3];                    // Código: armazena dois dígitos, exemplo: "01"
-    char cidade1[50], cidade2[50];                  // Armazena o nome da cidade
-    int populacao1, populacao2;                     // Armazena a população da cidade
-    float area1, area2;                             // Armazena a área da cidade em km²
-    float pib1, pib2;                               // Armazena o PIB em bilhões de reais
-    int qtdPontosTuristicos1, qtdPontosTuristicos2; // Armazena a quantidade de pontos turísticos da cidade
-    float densidadePop1, densidadePop2;             // Armazena a densidade populacional da cidade
-    float pibPerCapita1, pibPerCapita2;             // Armazena o PIB per capita da cidade
-    
+    char estado1, estado2;                                  // Armazena o Estado (A-H).
+    char codigo1[3], codigo2[3];                            // Armazena dois dígitos, exemplo: "01"
+    char cidade1[50], cidade2[50];                          // Armazena o nome da cidade
+    unsigned long int populacao1, populacao2;               // Armazena a população da cidade
+    float area1, area2;                                     // Armazena a área da cidade em km²
+    float pib1, pib2;                                       // Armazena o PIB em bilhões de reais
+    int qtdPontosTuristicos1, qtdPontosTuristicos2;         // Armazena a quantidade de pontos turísticos da cidade
+    float densidadePopulacional1, densidadePopulacional2;   // Armazena a densidade populacional da cidade
+    float pibPerCapita1, pibPerCapita2;                     // Armazena o PIB per capita da cidade
+    float superPoder1, superPoder2;                         // Armazena o Super Poder da cidade
+
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
@@ -47,7 +46,7 @@ int main() {
     scanf("%d", &qtdPontosTuristicos1);
 
     // Cadastro dos dados da Carta 2
-    printf("Informe o Estado da Carta 2:\nObs.: Lembre-se que este país só possui 8 estados representados pelas letras A ao H: ");
+    printf("\nInforme o Estado da Carta 2:\nObs.: Lembre-se que este país só possui 8 estados representados pelas letras A ao H: ");
     scanf(" %c", &estado2); // O espaço antes de %c é para ignorar qualquer caractere de nova linha que possa ter sido deixado no buffer
     
     printf("Informe o número da Carta 2 (ex: 02): ");
@@ -69,18 +68,18 @@ int main() {
     scanf("%d", &qtdPontosTuristicos2);
 
     // Cálculo da densidade populacional e PIB per capita
-    densidadePop1 = (float)populacao1 / area1;
-    densidadePop2 = (float)populacao2 / area2;
+    densidadePopulacional1 = (float)populacao1 / area1;
+    densidadePopulacional2 = (float)populacao2 / area2;
     pibPerCapita1 = pib1 * 1e9 / populacao1; // PIB em reais dividido pela população
     pibPerCapita2 = pib2 * 1e9 / populacao2; // PIB em reais dividido pela população
-    
+
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     // Exibição dos dados das cartas de forma organizada
     // Carta 1
-    printf("\nCarta 1:\n");
+    printf("\nCARTA 1:\n");
     printf("Estado: %c\n", estado1);
     printf("Código: %c%s\n", estado1, codigo1);
     printf("Nome da Cidade: %s\n", cidade1);
@@ -88,11 +87,11 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", qtdPontosTuristicos1);
-    printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional1);
     printf("PIB per Capita: %.2f reais\n", pibPerCapita1);
     
     // Carta 2
-    printf("\nCarta 2:\n");
+    printf("\nCARTA 2:\n");
     printf("Estado: %c\n", estado2);
     printf("Código: %c%s\n", estado2, codigo2);
     printf("Nome da Cidade: %s\n", cidade2);
@@ -100,9 +99,24 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", qtdPontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
     printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
-    printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
-    
+
+    // Calcular o Super Poder
+    superPoder1 = (float)populacao1 + area1 + pib1 + (float)qtdPontosTuristicos1 + pibPerCapita1 + (1 / densidadePopulacional1);
+    superPoder2 = (float)populacao2 + area2 + pib2 + (float)qtdPontosTuristicos2 + pibPerCapita2 + (1 / densidadePopulacional2);
+
+    // Comparar as Cartas
+    printf("\nCOMPARAÇÃO DE CARTAS:\n");
+    printf("ATENÇÃO! Carta 1 vence se o resultado for 1. Carta 2 vence se o resultado for 0.\n");
+    printf("População: %d\n", populacao1 > populacao2);
+    printf("Área: %d\n", area1 > area2);
+    printf("PIB: %d\n", pib1 > pib2);
+    printf("Pontos Turísticos: %d\n", qtdPontosTuristicos1 > qtdPontosTuristicos2);
+    printf("Densidade Populacional: %d\n", densidadePopulacional1 < densidadePopulacional2);
+    printf("PIB per Capita: %d\n", pibPerCapita1 > pibPerCapita2);
+    printf("Super Poder: %d\n", superPoder1 > superPoder2);
+
     return 0;
 }
 // O código acima é um exemplo de como cadastrar e exibir informações de duas cartas de um jogo.
