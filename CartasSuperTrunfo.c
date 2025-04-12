@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
@@ -18,6 +17,8 @@ int main() {
     float area1, area2;                             // Armazena a área da cidade em km²
     float pib1, pib2;                               // Armazena o PIB em bilhões de reais
     int qtdPontosTuristicos1, qtdPontosTuristicos2; // Armazena a quantidade de pontos turísticos da cidade
+    float densidadePop1, densidadePop2;             // Armazena a densidade populacional da cidade
+    float pibPerCapita1, pibPerCapita2;             // Armazena o PIB per capita da cidade
     
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -67,6 +68,12 @@ int main() {
     printf("Informe o Número de Pontos Turísticos da Carta 2: ");
     scanf("%d", &qtdPontosTuristicos2);
 
+    // Cálculo da densidade populacional e PIB per capita
+    densidadePop1 = (float)populacao1 / area1;
+    densidadePop2 = (float)populacao2 / area2;
+    pibPerCapita1 = pib1 * 1e9 / populacao1; // PIB em reais dividido pela população
+    pibPerCapita2 = pib2 * 1e9 / populacao2; // PIB em reais dividido pela população
+    
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
@@ -81,6 +88,8 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", qtdPontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita1);
     
     // Carta 2
     printf("\nCarta 2:\n");
@@ -91,7 +100,9 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", qtdPontosTuristicos2);
-
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
+    
     return 0;
 }
 // O código acima é um exemplo de como cadastrar e exibir informações de duas cartas de um jogo.
